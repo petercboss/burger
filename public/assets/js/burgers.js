@@ -7,24 +7,20 @@ $(() => {
     });
 
     $('.devour').on('click', (event) => {
-        let id = $(this).data('id');
-        console.log(id);
+        let id = $(event.target).data('id');
         $.ajax('/api/burgers/' + id, {
             type: 'PUT', 
          }).then(() => {
-            console.log('changed devoured to true');
             location.reload();
         });
-      });
+    });
   
     $('.delete').on('click', (event) => {
-        let id = $(this).data('id');
-        console.log(id);
+        let id = $(event.target).data('id');
         $.ajax('/api/burgers/' + id, {
-            type: 'DELETE'
+            type: 'DELETE',
           }).then(() => {
-              console.log('deleted burger', id);
-              location.reload();
+            location.reload();
         });
     });
 });

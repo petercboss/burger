@@ -14,13 +14,13 @@ const orm = {
         });
     },
     updateOne: (table, condition, cb) => {
-      connection.query(`UPDATE ${table} SET { devoured: true } WHERE ${condition}`, (err, result) => {
+      connection.query(`UPDATE ${table} SET ? WHERE ?`, [{devoured: true}, {id: condition}], (err, result) => {
         if (err) throw err;
         cb(result);
       });
     },
     delete: (table, condition, cb) => {
-      connection.query(`DELETE FROM ${table} WHERE ${condition}`, (err, result) => {
+      connection.query(`DELETE FROM ${table} WHERE ?`, [{id: condition}], (err, result) => {
         if (err) throw err;
         cb(result);
       });

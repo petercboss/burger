@@ -13,7 +13,7 @@ router.post('/api/burgers', (req, res) => {
 });
 
 router.put('/api/burgers/:id', (req, res) => {
-  let condition = 'id = ' + req.params.id;
+  let condition = req.params.id;
   burger.update(condition, (result) => {
     if (result.changedRows == 0) {
       return res.status(404).end();
@@ -25,15 +25,10 @@ router.put('/api/burgers/:id', (req, res) => {
 });
 
 router.delete('/api/burgers/:id', (req, res) => {
-  let condition = 'id = ' + req.params.id;
+  let condition = req.params.id;
   burger.delete(condition, (result) => {
-    if (result.changedRows == 0) {
-      return res.status(404).end();
-    } 
-    else {
       res.status(200).end();
-    };
-  });
+    });
 });
 
 module.exports = router;

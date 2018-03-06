@@ -11,9 +11,7 @@
                         {{#unless devoured}}
                             <li>
                 	            {{burger_name}}
-                                <button class="devour btn btn-secondary btn-sm" data-id="{{id}}" data-newdevoured="{{devoured}}">
-                		        DEVOUR!
-                	            </button>
+                                <button class="devour btn btn-secondary btn-sm" data-id="{{this.id}}">DEVOUR!</button>
                             </li>
                         {{/unless}}
                     {{/each}}
@@ -26,7 +24,7 @@
                         {{#if devoured}}
                             <li>
                 	            {{burger_name}}
-                                <button class="delete btn btn-secondary btn-sm" data-id="{{id}}">DELETE</button>
+                                <button class="delete btn btn-secondary btn-sm" data-id="{{this.id}}">DELETE</button>
                             </li>
                         {{/if}}
                     {{/each}}
