@@ -3,7 +3,7 @@ const router = express.Router();
 const burger = require('../models/burger.js');
 
 router.get('/', (req, res) => {
-    burger.all( data => res.render('index', { burgers: data }));
+  burger.all( data => res.render('index', { burgers: data }));
 });
 
 router.post('/api/burgers', (req, res) => {
